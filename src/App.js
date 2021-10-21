@@ -17,7 +17,7 @@ function App() {
           })
           .catch(alert);
       }, (err) => {
-        alert(err);
+        alert(err.message);
       })
     } else {
       alert('This browser does not support this feature');
