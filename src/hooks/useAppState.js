@@ -12,7 +12,7 @@ function useAppState() {
       const {x, y, z} = colors.coldWarmGradient[0];
       setBackgroundColor(`rgb(${x},${y},${z})`);
     } else if (roundedTemp >= 30) {
-      const {x, y, z} = colors.coldWarmGradient[20];
+      const {x, y, z} = colors.warmHotGradient[20];
       setBackgroundColor(`rgb(${x},${y},${z})`);
     } else if (roundedTemp > -10 && roundedTemp <= 10) {
       const {x, y, z} = colors.coldWarmGradient[roundedTemp + 10];
@@ -24,7 +24,7 @@ function useAppState() {
   }, [temperature]);
 
 
-  return {backgroundColor, icon, setIcon, setTemperature};
+  return {backgroundColor, icon, setIcon, setTemperature, temperature};
 }
 
 export default useAppState;

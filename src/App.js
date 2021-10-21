@@ -1,11 +1,12 @@
 import React from 'react';
 import useAppState from './hooks/useAppState';
 import LocationAccessDialog from './components/LocationAccessDialog';
+import CustomSlider from './components/Slider';
 import WeatherApi from './api/weatherApi';
 import './App.css';
 
 function App() {
-  const {backgroundColor, icon, setIcon, setTemperature} = useAppState();
+  const {backgroundColor, temperature, icon, setIcon, setTemperature} = useAppState();
 
   const accessLocationHandler = () => {
     if (navigator.geolocation) {
@@ -29,6 +30,7 @@ function App() {
       {
          icon ? <img id="wicon" src={icon} alt="Weather icon" /> : <LocationAccessDialog onAccessLocation={accessLocationHandler} />
       }
+      <CustomSlider temperature={Math.round(temperature)} onTemperatureChangeHandler={setTemperature} />
     </div>
   );
 }
